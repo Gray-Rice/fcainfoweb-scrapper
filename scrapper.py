@@ -5,22 +5,33 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 from datetime import date,timedelta
 import time
+import argparse
 # User defined modules
 from siteutils import *
 from csvutils import *
 from dateutils import *
 
+
+# Parsing arguments
+parser = argparse.ArgumentParser()
+parser.add_argument('-w', action='store_true',help = "Enable wholesale data scraping")
+parser.add_argument("-y","--year",type=int, help = "Year to start scraping",required = True)
+args = parser.parse_args()
+
+
+# Initializing selenium components
 driver = webdriver.Firefox()
 driver.get('https://fcainfoweb.nic.in/reports/Report_Menu_Web.aspx')
 
-date_init(2014)
+# Initializing other components
+date_init(args.year)
 csv_init()
 date_in = rdate()
 site_init(driver)
 
-
+# Scraping loop
 while(date_in != None):
-    fillform(driver)  # pass True to scrape wholesale data
+    fillform(driver,args.w)
     filldate(driver,date_in)
     if(check_error(driver)):
         print("Error on day: "+fdate(rdate()))
