@@ -15,8 +15,16 @@ Assuming python is installed and configured properly
 
 ### 2. Running:
 Run the script with
-`python scrapper.py`<br/>
+`python scrapper.py -y year`<br/>
+To Scrape wholesale data an optional flag `-w` is required<br/>
+`python scrapper.py -w -y year`<br/>
 
-**Linux only:**<br/>
-Using `tee` to save logs<br/>
-`python -u scrapper.py | tee -a log.txt`
+**Example:**<br/>
+To get retail data from 01/01/2024<br/>
+`python scrapper.py -y 2024`<br/>
+Wholesale date from same date:<br/>
+`python scrapper.py -w -y 2024`
+
+**Note:** default date starts from 1st of january for all years
+
+
