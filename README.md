@@ -10,7 +10,7 @@ Assuming python is installed and configured properly
   Or alternatively use your desired package manager<br/>
 
 2. Webdriver:<br/>
-   The script use mozilla's [GeckoDriver](https://github.com/mozilla/geckodriver) by default, make use it is installed and configured properly.<br/>
+   The script uses mozilla's [GeckoDriver](https://github.com/mozilla/geckodriver) by default, make sure it is installed and configured properly.<br/>
    Those who wish to utilise a different driver make appropriate changes to `scrapper.py`.<br/>
 
 ### 2. Running:
